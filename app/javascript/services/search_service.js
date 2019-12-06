@@ -6,10 +6,14 @@ class SearchService {
 
     this.component.state.search = {
       value: '',
+      result: {},
+      loading: false,
     }
   }
 
   fetchVehicle = () => {
+    this.setSearch({loading: true});
+
     const id     = this.getValue();
 
     axios.defaults.headers.common['Authorization'] = `Token ${process.env.API_KEY}`;
@@ -19,14 +23,20 @@ class SearchService {
       method: 'get',
       url: `https://secure.fleetio.com/api/v1/vehicles/${id}`,
     }).then(response => {
+      this.setSearch({loading: false});
       console.log('response: ', response);
     }).catch(error => {
+      this.setSearch({loading: false});
       console.log('error: ', error);
     });
   }
 
   getValue = () => {
     return this.component.state.search.value;
+  }
+
+  isLoading = () => {
+    return this.component.state.search.loading;
   }
 
   onChange = (e) => {
