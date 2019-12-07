@@ -13,7 +13,7 @@ class SearchService {
   }
 
   fetchVehicle = () => {
-    this.setSearch({loading: true, error: ''});
+    this.setSearch({loading: true, error: '', result: {}});
 
     const vin = this.getValue();
 
