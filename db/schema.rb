@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_07_022034) do
+ActiveRecord::Schema.define(version: 2019_12_07_094459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,28 @@ ActiveRecord::Schema.define(version: 2019_12_07_022034) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
+  end
+
+  create_table "vehicle_favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "vehicle_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "vehicle_id"], name: "index_vehicle_favorites_on_user_id_and_vehicle_id", unique: true
+  end
+
+  create_table "vehicles", force: :cascade do |t|
+    t.string "color", default: ""
+    t.string "image_url", default: ""
+    t.string "model", default: ""
+    t.string "make", default: ""
+    t.string "license_plate", default: ""
+    t.string "fuel_efficiency", default: ""
+    t.string "vin", default: "", null: false
+    t.integer "year"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["vin"], name: "index_vehicles_on_vin", unique: true
   end
 
 end

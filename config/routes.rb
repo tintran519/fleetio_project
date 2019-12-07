@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   root 'app#index'
 
   resource :user, :only => [:show]
+  resource :vehicle, :only => [:create]
 end
