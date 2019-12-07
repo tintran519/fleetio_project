@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 
 import logo from '../images/fleetio_logo.png';
 
-import Spinner from '../components/spinner';
+import Spinner     from '../components/spinner';
+import Vehicle     from '../components/vehicle';
+import ErrorFooter from '../components/error_footer';
 
 class SearchContainer extends React.Component {
   buttonContent (text) {
@@ -14,8 +16,32 @@ class SearchContainer extends React.Component {
     return text;
   }
 
+  searchResult () {
+    const result = this.props.service.getResult();
+
+    if (Object.entries(result).length < 1) { return null; }
+
+    return <div className = 'row justify-content-center'>
+      <div className = 'col-2 pt-3'>
+        <Vehicle
+          imgUrl        = {result.imgUrl}
+          name          = {result.name}
+          model         = {result.model}
+          make          = {result.make}
+          year          = {result.year}
+          licensePlate  = {result.licensePlate}
+          vin           = {result.vin} />
+      </div>
+    </div>
+  }
+
   render () {
-    const {onChange, getValue, fetchVehicle, isLoading} = this.props.service;
+    const {
+      onChange,
+      getValue,
+      fetchVehicle,
+      isLoading,
+      getError} = this.props.service;
 
     return (
       <div className = 'search-container'>
@@ -42,6 +68,10 @@ class SearchContainer extends React.Component {
             </button>
           </form>
         </div>
+
+        {this.searchResult()}
+
+        <ErrorFooter message = {getError()} />
       </div>
     )
   }
