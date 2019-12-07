@@ -5,6 +5,7 @@ import Navbar from '../components/navbar';
 
 import SearchContainer from './search_container';
 
+import UserService   from '../services/user_service';
 import SearchService from '../services/search_service';
 
 class AppContainer extends React.Component {
@@ -14,12 +15,17 @@ class AppContainer extends React.Component {
     this.state = {};
 
     this.searchService = new SearchService(this);
+    this.userService   = new UserService(this);
+  }
+
+  componentDidMount () {
+    this.userService.fetchUser();
   }
 
   render () {
     return (
       <div className = 'app-container'>
-        <Navbar />
+        <Navbar user = {this.userService.getUser()} />
 
         <SearchContainer service = {this.searchService} />
       </div>

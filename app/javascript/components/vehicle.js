@@ -43,6 +43,10 @@ class Vehicle extends React.Component {
               </div>
             </div>
           </div>
+
+          <div className = 'card-footer text-center'>
+            <button className = 'btn btn-primary'>Favorite</button>
+          </div>
         </div>
       </div>
     )
