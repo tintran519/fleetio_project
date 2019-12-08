@@ -13,6 +13,10 @@ class UserService {
     return this.component.state.user;
   }
 
+  isFavorited = (vin) => {
+    return this.getUser().vehicles.find(vehicle => vin == vehicle.vin);
+  }
+
   fetchUser = () => {
     return axios({
       method: 'get',

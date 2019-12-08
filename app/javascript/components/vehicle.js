@@ -1,6 +1,18 @@
 import React from 'react';
 
 class Vehicle extends React.Component {
+  footer (vin) {
+    if (this.props.isFavorited(vin)) {
+      return <div className = 'card-footer text-warning text-center'>
+        Already Favorited!
+      </div>
+    }
+
+    return <div className = 'card-footer text-center'>
+      <button className = 'btn btn-primary'>Favorite</button>
+    </div>
+  }
+
   render () {
     const {
       imgUrl,
@@ -44,9 +56,8 @@ class Vehicle extends React.Component {
             </div>
           </div>
 
-          <div className = 'card-footer text-center'>
-            <button className = 'btn btn-primary'>Favorite</button>
-          </div>
+          {this.footer(vin)}
+
         </div>
       </div>
     )

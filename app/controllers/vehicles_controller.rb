@@ -6,7 +6,7 @@ class VehiclesController < ApplicationController
 
     current_user.vehicles << vehicle
 
-    render json: { vehicle: vehicle }
+    render json: { vehicles: current_user.vehicles }
   end
 
   private

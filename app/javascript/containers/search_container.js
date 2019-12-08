@@ -17,13 +17,15 @@ class SearchContainer extends React.Component {
   }
 
   searchResult () {
-    const result = this.props.service.getResult();
+    const {isFavorited} = this.props;
+    const result        = this.props.service.getResult();
 
     if (Object.entries(result).length < 1) { return null; }
 
     return <div className = 'row justify-content-center'>
       <div className = 'col-6-md col-2-lg pt-3'>
         <Vehicle
+          isFavorited   = {isFavorited}
           imgUrl        = {result.imgUrl}
           name          = {result.name}
           model         = {result.model}

@@ -27,7 +27,9 @@ class AppContainer extends React.Component {
       <div className = 'app-container'>
         <Navbar user = {this.userService.getUser()} />
 
-        <SearchContainer service = {this.searchService} />
+        <SearchContainer
+          isFavorited = {this.userService.isFavorited}
+          service     = {this.searchService} />
       </div>
     )
   }
