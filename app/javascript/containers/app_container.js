@@ -7,9 +7,10 @@ import Navbar from '../components/navbar';
 import SearchContainer    from './search_container';
 import FavoritesContainer from './favorites_container';
 
-import SearchService from '../services/search_service';
-import UserService   from '../services/user_service';
-import NavService    from '../services/nav_service';
+import SearchService  from '../services/search_service';
+import UserService    from '../services/user_service';
+import NavService     from '../services/nav_service';
+import VehicleService from '../services/vehicle_service';
 
 class AppContainer extends React.Component {
   constructor (props) {
@@ -17,9 +18,10 @@ class AppContainer extends React.Component {
 
     this.state = {};
 
-    this.searchService = new SearchService(this);
-    this.userService   = new UserService(this);
-    this.navService    = new NavService(this);
+    this.searchService  = new SearchService(this);
+    this.userService    = new UserService(this);
+    this.navService     = new NavService(this);
+    this.vehicleService = new VehicleService(this);
   }
 
   componentDidMount () {
@@ -37,14 +39,16 @@ class AppContainer extends React.Component {
           <Route
             exact path = '/'
             render = {(props) => <SearchContainer
-              isFavorited = {this.userService.isFavorited}
-              service     = {this.searchService} /> }/>
+              isFavorited    = {this.userService.isFavorited}
+              vehicleService = {this.vehicleService}
+              service        = {this.searchService} /> }/>
 
           <Route
             exact path = '/favorites'
             render = {(props) => <FavoritesContainer
-              isFavorited = {this.userService.isFavorited}
-              vehicles    = {this.userService.getVehicles()} /> }/>
+              isFavorited    = {this.userService.isFavorited}
+              vehicleService = {this.vehicleService}
+              vehicles       = {this.userService.getVehicles()} /> }/>
 
         </div>
       </Router>

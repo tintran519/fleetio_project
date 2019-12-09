@@ -4,21 +4,21 @@ import Vehicle from '../components/vehicle';
 
 class FavoritesContainer extends React.Component {
   vehicles () {
-    const {vehicles, isFavorited} = this.props;
-    console.log('vehicles: ', vehicles)
+    const {vehicles, isFavorited, vehicleService} = this.props;
 
     if (vehicles.length < 1) return null;
 
     return vehicles.map(vehicle => {
-      return <div className = 'col-6-md col-3-lg pt-3'>
+      return <div key = {vehicle.id} className = 'col-6-md col-3-lg px-3'>
         <Vehicle
+          service       = {vehicleService}
           isFavorited   = {isFavorited}
-          imgUrl        = {vehicle.imgUrl}
+          image_url     = {vehicle.image_url}
           name          = {vehicle.name}
           model         = {vehicle.model}
           make          = {vehicle.make}
           year          = {vehicle.year}
-          licensePlate  = {vehicle.licensePlate}
+          license_plate = {vehicle.license_plate}
           vin           = {vehicle.vin} />
       </div>
     })
@@ -26,8 +26,8 @@ class FavoritesContainer extends React.Component {
 
   render () {
     return (
-      <div className = 'favorites-container'>
-        <div className = 'row justify-content-center'>
+      <div className = 'favorites-container container-fluid'>
+        <div className = 'row justify-content-start py-3'>
           {this.vehicles()}
         </div>
       </div>

@@ -12,8 +12,9 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params
-    params.permit(
+    params.require(:vehicle).permit(
       :color,
+      :name,
       :image_url,
       :model,
       :make,

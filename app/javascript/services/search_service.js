@@ -66,14 +66,14 @@ class SearchService {
     this.setSearch({
       loading: false,
       result: {
-        color:        data[0].color,
-        imageUrl:     data[0].default_image_url_large,
-        name:         data[0].name,
-        model:        data[0].model,
-        make:         data[0].make,
-        year:         data[0].year,
-        licensePlate: data[0].license_plate,
-        vin:          data[0].vin,
+        color:         data[0].color,
+        image_url:     data[0].default_image_url_large,
+        name:          data[0].name,
+        model:         data[0].model,
+        make:          data[0].make,
+        year:          data[0].year,
+        license_plate: data[0].license_plate,
+        vin:           data[0].vin,
       }
     });
   }

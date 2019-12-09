@@ -27,7 +27,6 @@ class UserService {
       url: '/user',
     }).then(response => {
       this.setUser(response.data.user);
-      console.log('fetchUser response: ', response)
     })
     .catch(error => {console.log('fetchUser error: ', error)});
   }

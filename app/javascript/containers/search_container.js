@@ -6,32 +6,26 @@ import logo from '../images/fleetio_logo.png';
 import Spinner     from '../components/spinner';
 import Vehicle     from '../components/vehicle';
 import ErrorFooter from '../components/error_footer';
+import Button      from '../components/button';
 
 class SearchContainer extends React.Component {
-  buttonContent (text) {
-    const {isLoading} = this.props.service;
-
-    if (isLoading()) { return <Spinner /> };
-
-    return text;
-  }
-
   searchResult () {
-    const {isFavorited} = this.props;
-    const result        = this.props.service.getResult();
+    const result                        = this.props.service.getResult();
+    const {isFavorited, vehicleService} = this.props;
 
-    if (Object.entries(result).length < 1) { return null; }
+    if (Object.entries(result).length < 1) return null;
 
     return <div className = 'row justify-content-center'>
       <div className = 'col-6-md col-2-lg pt-3'>
         <Vehicle
+          service       = {vehicleService}
           isFavorited   = {isFavorited}
-          imageUrl      = {result.imageUrl}
+          image_url     = {result.image_url}
           name          = {result.name}
           model         = {result.model}
           make          = {result.make}
           year          = {result.year}
-          licensePlate  = {result.licensePlate}
+          license_plate = {result.license_plate}
           vin           = {result.vin} />
       </div>
     </div>
@@ -61,13 +55,11 @@ class SearchContainer extends React.Component {
               value       = {getValue()}
               placeholder = 'Search for a VIN'
               aria-label  = 'Search' />
-            <button
-              className = 'btn btn-outline-success my-2 my-sm-0'
+            <Button
+              classes   = {'btn btn-outline-success my-2 my-sm-0'}
               disabled  = {isLoading()}
-              onClick   = {fetchVehicle}
-              type      = 'submit'>
-              {this.buttonContent('Find Vehicle')}
-            </button>
+              btnText   = {'Find Vehicle'}
+              onClick   = {fetchVehicle} />
           </form>
         </div>
 

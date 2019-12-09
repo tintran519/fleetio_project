@@ -13,7 +13,6 @@ class NavService {
     let classes = ['navbar-collapse'];
 
     if (this.getCollapseNav()) classes.push('collapse');
-    console.log('classes: ', classes)
 
     return classes.join(' ');
   }
