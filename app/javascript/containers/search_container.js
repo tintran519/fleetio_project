@@ -26,7 +26,7 @@ class SearchContainer extends React.Component {
       <div className = 'col-6-md col-2-lg pt-3'>
         <Vehicle
           isFavorited   = {isFavorited}
-          imgUrl        = {result.imgUrl}
+          imageUrl      = {result.imageUrl}
           name          = {result.name}
           model         = {result.model}
           make          = {result.make}

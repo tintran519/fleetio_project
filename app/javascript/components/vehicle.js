@@ -15,7 +15,7 @@ class Vehicle extends React.Component {
 
   render () {
     const {
-      imgUrl,
+      imageUrl,
       name,
       model,
       make,
@@ -26,7 +26,7 @@ class Vehicle extends React.Component {
     return (
       <div className = 'vehicle-container'>
         <div className = 'card'>
-          <img src = {imgUrl} />
+          <img src = {imageUrl} />
           <div className = 'card-body'>
             <h5 className = 'card-title text-center'>
               {name}

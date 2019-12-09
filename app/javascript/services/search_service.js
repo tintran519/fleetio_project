@@ -67,7 +67,7 @@ class SearchService {
       loading: false,
       result: {
         color:        data[0].color,
-        imgUrl:       data[0].default_image_url_large,
+        imageUrl:     data[0].default_image_url_large,
         name:         data[0].name,
         model:        data[0].model,
         make:         data[0].make,
