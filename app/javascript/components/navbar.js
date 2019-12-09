@@ -31,7 +31,11 @@ class Navbar extends React.Component {
             </li>
           </ul>
 
-          <span className = 'navbar-text'>Sign Out</span>
+          <div
+            className = 'sign-out navbar-text'
+            onClick   = {this.props.signOut}>
+            Sign Out
+          </div>
         </div>
 
       </nav>

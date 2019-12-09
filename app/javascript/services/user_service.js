@@ -31,6 +31,18 @@ class UserService {
     .catch(error => {console.log('fetchUser error: ', error)});
   }
 
+  signOut = () => {
+    const csrfToken = document.querySelector('[name=csrf-token]').content;
+
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
+
+    return axios({
+      method: 'delete',
+      url: '/users/sign_out.json',
+    }).then(response => window.location.href = '/')
+    .catch(error => {console.log('signOut error: ', error)});
+  }
+
   setUser = (props) => {
     this.component.setState(state => {
       return {

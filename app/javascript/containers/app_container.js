@@ -34,7 +34,9 @@ class AppContainer extends React.Component {
     return (
       <Router>
         <div className = 'app-container'>
-          <Navbar service = {this.navService} />
+          <Navbar
+            service = {this.navService} 
+            signOut = {this.userService.signOut}  />
 
           <Route
             exact path = '/'
