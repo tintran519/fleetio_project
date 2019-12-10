@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
   def set_user
     @user = {
-      username: current_user.username,
+      email: current_user.email,
       vehicles: current_user.vehicles
     }
   end

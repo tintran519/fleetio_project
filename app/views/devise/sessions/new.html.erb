@@ -1,0 +1,36 @@
+<div class = 'login-container text-center row justify-content-center'>
+  <%= form_for(
+    resource,
+    as: resource_name,
+    url: session_path(resource_name)) do |f| %>
+
+    <%= content_tag(
+      :div,
+      flash[:alert],
+      class: 'alert alert-danger'
+      ) if flash[:alert] %>
+
+    <h3 class = 'mb-3'>Fleetio VIN Finder</h3>
+    <div class="field">
+      <%= f.email_field :email,
+        class: 'form-control',
+        autofocus: true,
+        placeholder: 'Email Address',
+        autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password,
+        class: 'form-control',
+        placeholder: 'Password',
+        autocomplete: "current-password" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Log in",
+        class: 'btn btn-lg btn-primary btn-block my-3'%>
+    </div>
+
+    <%= render "devise/shared/links" %>
+  <% end %>
+</div>

@@ -29,13 +29,14 @@ class AppContainer extends React.Component {
   }
 
   render () {
-    if (!this.state.user.username) return null;
+    console.log('the state: ', this.state)
+    if (!this.state.user.email) return null;
 
     return (
       <Router>
         <div className = 'app-container'>
           <Navbar
-            service = {this.navService} 
+            service = {this.navService}
             signOut = {this.userService.signOut}  />
 
           <Route
