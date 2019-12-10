@@ -18,6 +18,22 @@ class VehicleService {
     return this.component.state.vehicle.loading;
   }
 
+  deleteVehicle = (e) => {
+    this.setVehicle({loading: true, error: ''});
+
+    const csrfToken = document.querySelector('[name=csrf-token]').content;
+    const data      = {vin: e.target.id};
+
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
+
+    return axios({
+      method: 'delete',
+      url: '/user/user_vehicles',
+      data: data
+    }).then(this.handleSuccess)
+    .catch(this.handleError);
+  }
+
   addVehicle = () => {
     this.setVehicle({loading: true, error: ''});
 
@@ -28,7 +44,7 @@ class VehicleService {
 
     return axios({
       method: 'post',
-      url: '/vehicle',
+      url: '/user/user_vehicles',
       data: data
     }).then(this.handleSuccess)
     .catch(this.handleError);

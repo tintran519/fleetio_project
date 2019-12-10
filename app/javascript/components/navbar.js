@@ -12,7 +12,7 @@ class Navbar extends React.Component {
       <nav className = 'navbar navbar-expand-lg navbar-light bg-light'>
         <Link to = '/'>
           <div className = 'navbar-brand'>
-            Fleetio VIN Lookup
+            Fleetio VIN Search
           </div>
         </Link>
 
@@ -34,7 +34,7 @@ class Navbar extends React.Component {
           <div
             className = 'sign-out navbar-text'
             onClick   = {this.props.signOut}>
-            Sign Out
+            Sign out {this.props.user.email}
           </div>
         </div>
 

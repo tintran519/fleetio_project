@@ -12,10 +12,11 @@ class Button extends React.Component {
   }
 
   render () {
-    const {disabled, classes, onClick, btnText} = this.props;
+    const {disabled, classes, onClick, btnText, id} = this.props;
 
     return (
       <button
+        id        = {id}
         className = {classes}
         disabled  = {disabled}
         onClick   = {onClick}>

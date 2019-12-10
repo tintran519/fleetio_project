@@ -37,6 +37,7 @@ class AppContainer extends React.Component {
         <div className = 'app-container'>
           <Navbar
             service = {this.navService}
+            user    = {this.userService.getUser()}
             signOut = {this.userService.signOut}  />
 
           <Route

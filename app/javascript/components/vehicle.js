@@ -10,15 +10,17 @@ class Vehicle extends React.Component {
     if (this.props.isFavorited(vin)) {
       return <div className = 'card-footer text-center'>
         <Button
+          id        = {vin}
           disabled  = {service.isLoading()}
           classes   = 'btn btn-danger'
           btnText   = 'Remove from Favorites'
-          onClick   = {service.addVehicle} />
+          onClick   = {service.deleteVehicle} />
       </div>
     }
 
     return <div className = 'card-footer text-center'>
       <Button
+        id        = {vin}
         disabled  = {service.isLoading()}
         classes   = 'btn btn-primary'
         btnText   = 'Add to Favorites'

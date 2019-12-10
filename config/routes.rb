@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'app#index'
   get '/favorites', to: 'app#index'
 
-  resource :user, :only => [:show]
-  resource :vehicle, :only => [:create]
+  resource :user, :only => [:show] do
+    resource :user_vehicles, :only => [:create, :destroy]
+  end
 end

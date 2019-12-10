@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_12_07_094459) do
   end
 
   create_table "vehicles", force: :cascade do |t|
+    t.string "name", default: ""
     t.string "color", default: ""
     t.string "image_url", default: ""
     t.string "model", default: ""
