@@ -1,5 +1,7 @@
 import React from 'react';
 
+import fallBackImg from '../images/vehicle_fallback.jpg';
+
 import Button      from './button';
 import ErrorFooter from './error_footer';
 
@@ -32,16 +34,23 @@ class Vehicle extends React.Component {
     const fuelEfficiency = Math.round(this.props.fuel_efficiency);
 
     if (isNaN(fuelEfficiency)) {
+      return 'Caculating fuel...';
+    } else if (!fuelEfficiency) {
       return 'No fuel data yet';
     } else {
       return `${fuelEfficiency} MPG`;
     }
   }
 
+  imgSrc () {
+    const {image_url} = this.props;
+
+    return image_url ? image_url : fallBackImg;
+  }
+
   render () {
     const {
       service,
-      image_url,
       name,
       model,
       make,
@@ -52,7 +61,7 @@ class Vehicle extends React.Component {
     return (
       <div className = 'vehicle-container'>
         <div className = 'card'>
-          <img src = {image_url} />
+          <img src = {this.imgSrc()} />
           <div className = 'card-body'>
             <h5 className = 'card-title text-center'>
               {name}

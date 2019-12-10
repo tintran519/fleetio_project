@@ -16,7 +16,7 @@ class SearchContainer extends React.Component {
     if (Object.entries(result).length < 1) return null;
 
     return <div className = 'row justify-content-center'>
-      <div className = 'col-6-md col-2-lg pt-3'>
+      <div className = 'col-6-md col-2-lg py-4'>
         <Vehicle
           service         = {vehicleService}
           isFavorited     = {isFavorited}

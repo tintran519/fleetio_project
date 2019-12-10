@@ -9,7 +9,7 @@ class FavoritesContainer extends React.Component {
     if (vehicles.length < 1) return null;
 
     return vehicles.map(vehicle => {
-      return <div key = {vehicle.id} className = 'col-6-md col-3-lg px-3'>
+      return <div key = {vehicle.id} className = 'col-6-md col-3-lg'>
         <Vehicle
           service         = {vehicleService}
           isFavorited     = {isFavorited}
@@ -28,7 +28,7 @@ class FavoritesContainer extends React.Component {
   render () {
     return (
       <div className = 'favorites-container container-fluid'>
-        <div className = 'row justify-content-start py-3'>
+        <div className = 'row justify-content-center py-3'>
           {this.vehicles()}
         </div>
       </div>

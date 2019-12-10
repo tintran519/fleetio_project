@@ -2,6 +2,8 @@
   .card {
     img {
       max-height: 335px;
+      min-height: 335px;
+      max-width: 470px;
     }
   }
 }
