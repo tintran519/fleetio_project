@@ -38,9 +38,9 @@ ActiveRecord::Schema.define(version: 2019_12_07_094459) do
     t.string "model", default: ""
     t.string "make", default: ""
     t.string "license_plate", default: ""
-    t.string "fuel_efficiency", default: ""
     t.string "vin", default: "", null: false
-    t.integer "year"
+    t.integer "fuel_efficiency", default: 0
+    t.integer "year", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["vin"], name: "index_vehicles_on_vin", unique: true

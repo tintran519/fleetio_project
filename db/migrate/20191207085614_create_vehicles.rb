@@ -7,13 +7,13 @@ class CreateVehicles < ActiveRecord::Migration[6.0]
       t.string  :model,           default: ""
       t.string  :make,            default: ""
       t.string  :license_plate,   default: ""
-      t.string  :fuel_efficiency, default: ""
       t.string  :vin,             null: false, default: ""
-      t.integer :year,            default: ""
+      t.integer :fuel_efficiency, default: 0
+      t.integer :year,            default: 0
 
       t.timestamps null: false
     end
 
-    add_index :vehicles, :vin, unique: true  
+    add_index :vehicles, :vin, unique: true
   end
 end

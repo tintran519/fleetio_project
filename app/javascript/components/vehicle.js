@@ -28,6 +28,16 @@ class Vehicle extends React.Component {
     </div>
   }
 
+  fuelEfficiency () {
+    const fuelEfficiency = Math.round(this.props.fuel_efficiency);
+
+    if (isNaN(fuelEfficiency)) {
+      return 'No fuel data yet';
+    } else {
+      return `${fuelEfficiency} MPG`;
+    }
+  }
+
   render () {
     const {
       service,
@@ -64,6 +74,10 @@ class Vehicle extends React.Component {
               <div>
                 <span className = 'badge badge-secondary mr-1'>License Plate:</span>
                 {license_plate}
+              </div>
+              <div>
+                <span className = 'badge badge-secondary mr-1'>Fuel Efficiency</span>
+                {this.fuelEfficiency()}
               </div>
               <div>
                 <span className = 'badge badge-secondary mr-1'>VIN:</span>

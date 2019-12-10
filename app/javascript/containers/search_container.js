@@ -18,15 +18,16 @@ class SearchContainer extends React.Component {
     return <div className = 'row justify-content-center'>
       <div className = 'col-6-md col-2-lg pt-3'>
         <Vehicle
-          service       = {vehicleService}
-          isFavorited   = {isFavorited}
-          image_url     = {result.image_url}
-          name          = {result.name}
-          model         = {result.model}
-          make          = {result.make}
-          year          = {result.year}
-          license_plate = {result.license_plate}
-          vin           = {result.vin} />
+          service         = {vehicleService}
+          isFavorited     = {isFavorited}
+          image_url       = {result.image_url}
+          name            = {result.name}
+          model           = {result.model}
+          make            = {result.make}
+          year            = {result.year}
+          license_plate   = {result.license_plate}
+          fuel_efficiency = {result.fuel_efficiency}
+          vin             = {result.vin} />
       </div>
     </div>
   }

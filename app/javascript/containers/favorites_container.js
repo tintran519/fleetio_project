@@ -11,15 +11,16 @@ class FavoritesContainer extends React.Component {
     return vehicles.map(vehicle => {
       return <div key = {vehicle.id} className = 'col-6-md col-3-lg px-3'>
         <Vehicle
-          service       = {vehicleService}
-          isFavorited   = {isFavorited}
-          image_url     = {vehicle.image_url}
-          name          = {vehicle.name}
-          model         = {vehicle.model}
-          make          = {vehicle.make}
-          year          = {vehicle.year}
-          license_plate = {vehicle.license_plate}
-          vin           = {vehicle.vin} />
+          service         = {vehicleService}
+          isFavorited     = {isFavorited}
+          image_url       = {vehicle.image_url}
+          name            = {vehicle.name}
+          model           = {vehicle.model}
+          make            = {vehicle.make}
+          year            = {vehicle.year}
+          license_plate   = {vehicle.license_plate}
+          fuel_efficiency = {vehicle.fuel_efficiency}
+          vin             = {vehicle.vin} />
       </div>
     })
   }
