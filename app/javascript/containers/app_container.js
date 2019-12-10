@@ -29,7 +29,6 @@ class AppContainer extends React.Component {
   }
 
   render () {
-    console.log('the state: ', this.state)
     if (!this.state.user.email) return null;
 
     return (
