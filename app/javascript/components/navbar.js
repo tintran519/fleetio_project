@@ -12,7 +12,7 @@ class Navbar extends React.Component {
       <nav className = 'navbar navbar-expand-lg navbar-light bg-light'>
         <Link to = '/'>
           <div className = 'navbar-brand'>
-            Fleetio VIN Search
+            Fleetio VIN Finder
           </div>
         </Link>
 
