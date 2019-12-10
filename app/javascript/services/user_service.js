@@ -39,8 +39,8 @@ class UserService {
     return axios({
       method: 'delete',
       url: '/users/sign_out.json',
-    }).then(response => window.location.href = '/')
-    .catch(error => {console.log('signOut error: ', error)});
+    }).then(response => window.location.href = '/users/sign_in')
+    .catch(error => console.log('signOut error: ', error));
   }
 
   setUser = (props) => {
